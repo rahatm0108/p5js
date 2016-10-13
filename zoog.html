@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>p5js Template</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/p5.js"></script>
+    
+    <script>
+        function setup() {
+            createCanvas(800,600);
+            
+            strokeWeight(3)
+            stroke(0)
+            fill(0,100,255);
+            ellipse(400,300,240,240); //face
+            fill(0);
+            ellipse(350,240,20,20); //left eye
+            fill(0);
+            ellipse(450,240,20,20); //right eye
+            fill(255);
+            ellipse(400,360,40,30); //mouth
+            
+            strokeWeight(4);
+            stroke(0)
+            fill(255,0,0);
+            rect(340,120,120,60);
+            rect(160,260,120,60);
+            rect(520,260,120,60);
+            rect(340,420,120,60);
+            
+            //text
+            noStroke()
+            fill(0)
+            textSize(25)
+            text("I", 395,160)
+            text("am", 200,300)
+            text("your", 555,300)
+            text("friend", 370, 460)
+            
+            //lines
+            strokeWeight(2)
+            stroke(0)
+            line(340,120,160,260);
+            line(160,320,340,480);
+            line(460,480,640,320);
+            line(340,120,160,260);
+            line(460,120,640,260);
+            
+        }
+
+        function draw() {
+            
+        }
+    </script>
+</head>
+
+
+  <body>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/rahatm0108/p5js/blob/gh-pages/zoog.html?footer=0"></script>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas0').remove());
+        });
+    </script>
+</body>
+
+
+
+</html>
