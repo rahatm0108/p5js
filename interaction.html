@@ -19,7 +19,7 @@
             ellipse(centerX, centerY, width / 2, height / 2);
 
             //chocolate chips
-            fill(0, 0, 0) // color of the chocolate chip
+            fill(0, 0, 0) // color of the chocolate chip(black)
             ellipse(centerX - 100, centerY, 30, 20);
             ellipse(centerX + 70, centerY - 100, 20, 20);
             ellipse(centerX + 10, centerY + 100, 20, 20);
@@ -35,7 +35,7 @@
         function draw() {
 
             // Text(above cookie)
-            stroke(random(255), random(255), random(255)) // color will change continously
+            stroke(random(255), random(255), random(255)) // color will change randomly
             strokeWeight(random(10))
             fill(255, 255, 255)
             rect(50, 10, 200, 40)
@@ -49,7 +49,7 @@
 
             // take a bite out of the cookie!
             noStroke()
-            fill(255, 255, 255)
+            fill(255, 255, 255)//white
             ellipse(mouseX, mouseY, 60, 60);
 
         }
@@ -59,7 +59,7 @@
             //Text(below cookie)
             fill(random(200, 255), random(200, 255), random(200, 255));
             rect(180, 500, 255, 40);
-            fill(0);
+            fill(0);//black
             textSize(30);
             text("Try A Different One", 180, 530);
 
