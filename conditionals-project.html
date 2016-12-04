@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>p5js Template</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/p5.js"></script>
+
+    <script>
+        var time; // current time
+        var a; //the time in which var time have to pass in order for condition time>a to be true
+        var space; //space key
+        var p1jumpGun; // player 1 false start 
+        var p2jumpGun; // player 2 false start
+        var p1win; // player 1 wins
+        var p2win; // player 2 wins
+        var go; // start
+
+        function setup() {
+            createCanvas(800, 600);
+            background(0); //black            
+            
+            space = true;
+            p1jumpGun = false;
+            p2jumpGun = false;
+            p1win = false;
+            p2win = false;
+            go = false;
+            
+            textSize(32); // font size of text
+            fill(255); //white
+            text("Player 1: LEFT arrow", 50, 100);
+            text("Player 2: RIGHT arrow", 400, 300);
+            text("Press SPACE to begin", 250, 500);
+
+        }
+
+        function draw() {
+           
+            time = millis(); //current time
+            if (go == true && time > a) { // switch background after current time reach a certain time between 1 second and 10 seconds
+                background(0, 255, 0); // green
+                text("GO", 400, 300);
+                space = false; 
+            }
+            
+            // If left arrow is pressed first after after "GO" player 1 wins the game
+            if (p1win == true && space == false && keyCode == LEFT_ARROW) { 
+                background(0, 0, 255); // blue
+                text("Player 1 wins!", 50, 100);
+                text("Press SPACE to play again", 300, 500);
+                space = true;
+                p2win = false;
+                go = false;
+                p1jumpGun = false;
+                p2jumpGun = false;
+            }
+            
+           // If right arrow is pressed first after the "GO" player 2 wins the game
+            else if (p2win == true && space == false && keyCode == RIGHT_ARROW) { 
+                background(0, 0, 255); // blue
+                text("Player 2 wins!", 50, 100);
+                text("Press SPACE to play again", 300, 500);
+                space = true;
+                p1win = false;
+                go = false;
+                p1jumpGun = false;
+                p2jumpGun = false;
+            }
+        }
+
+        
+        function keyPressed() {
+            
+            // If space is pressed
+            if (space == true && key == " ") {  
+                background(255, 0, 0); //red
+                text("WAIT", 400, 300);
+                a = random(1000, 10000) + time; // randomly chooses time between 1 second to 10 seconds
+                p1win = true;
+                p2win = true;
+                go = true;
+                p1jumpGun = true;
+                p2jumpGun = true;
+
+            }
+            
+            // if left arrow is first pressed before "GO", say "Player 1 jumped the gun!"
+            else if (p1jumpGun == true && space == true && keyCode == LEFT_ARROW) { 
+                background(0, 255, 255); // light blue
+                text("Player 1 jumped the gun!", 250, 300);
+                space = true;
+                p2jumpGun = false;
+                p1win = false;
+                p2win = false;
+                go = false;
+            }
+           
+            // If right arrow is first pressed before the "GO", say "Player 2 jumped the gun!" 
+            else if (p2jumpGun == true && space == true && keyCode == RIGHT_ARROW) { 
+                background(255, 0, 255); //purple
+                text("Player 2 jumped the gun!", 250, 300);
+                space = true;
+                p1jumpGun = false;
+                p1win = false;
+                p2win = false;
+                go = false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/USERNAME/p5js/blob/gh-pages/FILENAME.html?footer=0"></script>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas0').remove());
+        });
+    </script>
+</body>
+
+
+</html>
