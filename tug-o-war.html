@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>Drawing</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.13/p5.js"></script>
+    <script>
+        var x, y;
+        var w, h;
+
+        function setup() {
+            createCanvas(500, 500);
+            //will be used for the location of the ball
+            x = width / 2; //Set location of the x axis to 250
+            y = height / 2; //sets location of y axis to 250
+            w = 50; //width of the ball will be 50
+            h = 50; //height of ball will be set to 50
+
+        }
+
+        function draw() {
+
+            background(0); //background set to black to cover trail
+            strokeWeight(5)
+            stroke(255, 255, 255) //sets stroke to weight
+
+            //creates the lines on the canavas
+            line(0, height / 2, 500, height / 2) //middle line
+            line(50, 0, 50, 500) //left line
+            line(450, 0, 450, 500); //right line
+
+            fill(200, 0, 0);
+            textSize(50)
+            text("Tug-o-War", 125, 50)
+
+
+            ellipse(x, y, w, h);
+
+            //when the x axis is less or equal to 50 then player one wins and games end
+            if (x <= 50) {
+                background(0)
+                textSize(50)
+                text("Player 1 Wins", 100, height / 2)
+                noLoop();
+
+            }
+            //When the x axis is greater then or equal to 450 then player two wins
+            if (x >= 450) {
+                background(0)
+                textSize(50)
+                text("Player 2 Wins", 100, height / 2)
+                noLoop();
+
+            }
+        }
+
+        //If the keyis pressed but not released the function wont occur
+        function keyReleased() {
+            //When the key is pressed and it is a left arrow the x axis value changes by -20
+            if (keyCode === LEFT_ARROW) {
+                x -= 20;
+                noFill();
+
+            }
+            //When the key is pressed and it is a right arrow the x axis value changes by 20
+            else if (keyCode === RIGHT_ARROW) {
+                x += 20;
+                noFill();
+
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+<form><input TYPE="button" onClick="history.go(0)" value="Reset"></form>
+
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/rahatm0108/p5js/blob/gh-pages/tug-o-war.html?footer=0"></script>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas0').remove());
+        });
+    </script>
+</body>
+
+
+</html>
